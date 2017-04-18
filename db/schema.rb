@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20170418082844) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "attachmengt"
+    t.string   "attachment"
   end
 
   create_table "users", force: :cascade do |t|
