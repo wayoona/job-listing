@@ -1,37 +1,183 @@
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navbar-brand" href="/">Job Listing </a>
+            <a class="navbar-brand" href="/"> Monster</a>
         </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
+       <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
+          <ul class="nav navbar-nav">
+               <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">JOBS<b class="caret"></b></a>
+                  <ul class="dropdown-menu" style="width: 400px">
+                    <table class="table">
+                           <thead>
+                               <tr>
+                                <th>热门职位</th>
+                                <th>热门城市</th>
+                                <th>热门行业</th>
+                               </tr>
+                           </thead>
+                              <tbody>
+                               <tr>
+                                   <td><a href="#">销售</a></td>
+                                   <td><a href="#">北京</a></td>
+                                   <td><a href="#">金融</a></td>
+                               </tr>
+                               <tr>
+                                   <td><a href="#">财务／会计</a></td>
+                                   <td><a href="#">上海</a></td>
+                                   <td><a href="#">建筑／房地产</a></td>
+                               </tr>
+                               <tr>
+                                   <td><a href="#">人力资源／行政</a></td>
+                                   <td><a href="#">香港</a></td>
+                                   <td><a href="#">能源／生物／医疗</a></td>
+                               </tr>
+                               <tr>
+                                   <td><a href="#">技术／产品</a></td>
+                                   <td><a href="#">广州</a></td>
+                                   <td><a href="#">生产／制造</a></td>
+                               </tr>
+                               <tr>
+                                   <td><a href="#">生产制造</a></td>
+                                   <td><a href="#">深圳</a></td>
+                                   <td><a href="#">法律／教育／翻译</a></td>
+                               </tr>
+                               <tr>
+                                   <td><a href="#">公关／媒体</a></td>
+                                   <td><a href="#">杭州</a></td>
+                                   <td><a href="#">IT/电子</a></td>
+                               </tr>
+                               <tr>
+                                   <td><a href="#">全部职位类别</a></td>
+                                   <td><a href="#">国内其他城市</a></td>
+                                   <td><a href="#">全部行业类别</a></td>
+                               </tr>
+                              </tbody>
+                    </table>
+                 </ul>
+               </li>
+               <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">CAREER RESOURCES<b class="caret"></b></a>
+                      <ul class="dropdown-menu" style="width: 600px">
+                        <table class="table">
+                            <caption></caption>
+                               <thead>
+                                   <tr>
+                                    <th>知名招聘网站</th>
+                                    <th>热门文章</th>
+                                    <th>职业中心</th>
 
-                    <% if !current_user %>
-                      <li><%= link_to("注册", new_user_registration_path) %> </li>
-                      <li><%= link_to("登入", new_user_session_path) %></li>
-                    <% else %>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            Hi!, <%= current_user.email %>
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <% if current_user.admin? %>
-                            <li> <%= link_to("Admin Panel", admin_jobs_path) %> </li>
-                            <% end %>
-                            <li> <%= link_to("登出", destroy_user_session_path, method: :delete) %> </li>
-                        </ul>
-                      </li>
-                    <% end %>
+                                   </tr>
+                               </thead>
+                                  <tbody>
+                                   <tr>
+                                       <td><a href="http://ts.zhaopin.com/jump/index.html?sid=121113803&site=pzzhubiaoti1">智联招聘</a></td>
+                                       <td><a href="#">6个词和短语，毁掉你的简历</a></td>
+                                       <td><a href="#">职业管理</a></td>
+                                   </tr>
+                                   <tr>
+                                       <td><a href="http://www.51job.com/?from=baidupz">前程无忧</a></td>
+                                       <td><a href="#">如何最大限度地发挥您在工作场所的时间</a></td>
+                                       <td><a href="#">面试技巧</a></td>
+                                   </tr>
+                                   <tr>
+                                       <td><a href="http://tj.58.com/">58同城</a></td>
+                                       <td><a href="#">期待切换工作？如何识别你的可转让技能</a></td>
+                                       <td><a href="#">求职策略</a></td>
+                                   </tr>
+                                   <tr>
+                                       <td><a href="http://bj.ganji.com/">赶集网</a></td>
+                                       <td><a href="#">今天退出你的工作之前需要考虑的4件事情</a></td>
+                                       <td><a href="#">简历与书面信</a></td>
+                                   </tr>
+                                   <tr>
+                                       <td><a href="https://www.linkedin.com">领英</a></td>
+                                       <td><a href="#">如何解释你的简历中的差距</a></td>
+                                       <td><a href="#">薪资谈判</a></td>
+                                   </tr>
+                                   <tr>
+                                       <td><a href="#">其他网站</a></td>
+                                       <td><a href="#">查看更多文章</a></td>
+                                       <td><a href="#">寻找更多职业指导</a></td>
+                                   </tr>
+                                  </tbody>
+                        </table>
+                      </ul>
+                 </li>
+             </ul>
+             <ul class="nav navbar-nav navbar-right">
+               <li>
+                 <div class="form-group form-inline search-bar">
+                   <%= render :partial => "jobs/search_bar" %>
+                 </div>
+               </li>
+               <% if !current_user %>
+                 <li><a href="#" data-toggle="modal" data-target="#signup-modal"><span class="glyphicon glyphicon-user"></span>Sign up</a></li>
+                 <li><a href="#" data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
 
-                </li>
-            </ul>
+               <% else %>
+                 <li class="dropdown">
+                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                       Hi!, <%= current_user.email %>
+                       <b class="caret"></b>
+                   </a>
+                   <ul class="dropdown-menu">
+                       <% if current_user.admin? %>
+                       <li> <%= link_to("Admin Panel", admin_jobs_path) %> </li>
+                       <% end %>
+                       <li> <%= link_to("登出", destroy_user_session_path, method: :delete) %> </li>
+                   </ul>
+                 </li>
+               <% end %>
+             </ul>
+
+
+
+
         </div>
         <!-- /.navbar-collapse -->
     </div>
     <!-- /.container-fluid -->
 </nav>
+
+
+
+
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog" role="document">
+    <div class="loginmodal-container">
+       <h2>Log in</h2>
+       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+         <div class="form-inputs">
+           <%= f.input :email, required: false, autofocus: true %>
+           <%= f.input :password, required: false %>
+           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+         </div>
+         <div class="form-actions">
+           <%= f.button :submit, "Log in" %>
+         </div>
+       <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="loginmodal-container">
+      <h2>Sign up</h2>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+        <div class="form-inputs">
+          <%= f.input :email, required: true, autofocus: true %>
+          <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+          <%= f.input :password_confirmation, required: true %>
+        </div>
+        <div class="form-actions">
+            <%= f.button :submit, "Sign up" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
